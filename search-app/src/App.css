@@ -1,0 +1,25 @@
+.app {
+  font-size: calc(10px + 1vmin);
+  margin: 2em;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.error {
+  visibility: hidden;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    display: None;
+  }
+
+  .error {
+    visibility: visible; 
+  }
+}
