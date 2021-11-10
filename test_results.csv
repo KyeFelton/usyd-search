@@ -1,0 +1,51 @@
+﻿ID,Topic,Expected Entity,Expected Page,SydSearch - Entity Rank,SydSearch - Page Rank,Google,University of Sydney
+1,zihuai lin,Dr Zihuai Lin,https://www.sydney.edu.au/engineering/about/our-people/academic-staff/zihuai-lin.html,1,1,1,14
+2,prof. wilkinson,Professor Tim Wilkinson,https://www.sydney.edu.au/engineering/about/our-people/academic-staff/tim-wilkinson.html,1,1,1,-
+3,cbe.admin@sydney.edu.au,School of Chemical and Biomolecular Engineering,https://www.sydney.edu.au/engineering/schools/school-of-chemical-and-biomolecular-engineering.html,-,-,1,1
+4,iot centre,Centre for IoT and Telecommunications,https://www.sydney.edu.au/engineering/our-research/internet-of-things/centre-for-iot-and-telecommunications.html,1,1,1,2
+5,acfr,Australian Centre for Field Robotics,https://www.sydney.edu.au/engineering/our-research/robotics-and-intelligent-systems/australian-centre-for-field-robotics.html,1,1,1,1
+6,arc training centre for food processing,ARC Training Centre for the Australian Food Processing Industry,https://www.sydney.edu.au/engineering/our-research/food-products-process-and-supply-chain/arc-training-centre-for-the-australian-food-processing-industry.html,1,1,1,1
+7,microscopy research,Australian Centre for Microscopy & Microanalysis,https://www.sydney.edu.au/research/centres/australian-centre-for-microscopy-and-microanalysis.html,-,-,1,2
+8,energy storage consultancy services,Sustainable energy development consultancy services,https://www.sydney.edu.au/engineering/industry-and-community/consultancy-and-analytical-services/sustainable-energy-development-consultancy-services.html,1,1,1,6
+9,chemical engineering analytical services,Chemical engineering analytical services,https://www.sydney.edu.au/engineering/industry-and-community/consultancy-and-analytical-services/chemical-analytical-services.html,1,1,1,2
+10,wave flume,Wave Flume,https://www.sydney.edu.au/engineering/our-research/laboratories-and-facilities/fluids-laboratory.html,1,1,1,1
+11,particles and grains lab,Particles and Grains Laboratory,https://www.sydney.edu.au/engineering/our-research/laboratories-and-facilities/scigem.html,1,1,1,1
+12,wind tunnel,Boundary Layer Wind Tunnel,https://www.sydney.edu.au/engineering/our-research/laboratories-and-facilities/wind-tunnel.html,3,3,1,1
+13,master of prof civil eng,Master of Professional Engineering (Civil),https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil.html,2,2,1,-
+14,phd engineering,Doctor of Philosophy (Engineering),https://www.sydney.edu.au/courses/courses/pr/doctor-of-philosophy-engineering.html,-,-,1,-
+15,integrated engineering 1,ENGG1111 Integrated Engineering 1,https://www.sydney.edu.au/units/engg1111.html,1,1,1,3
+16,comp2017,COMP2017: Systems Programming,https://www.sydney.edu.au/units/COMP2017,1,1,1,1
+17,project management major,Project Management (Major),https://www.sydney.edu.au/courses/subject-areas/major/project-management.html,20,20,1,2
+18,sit building,SIT Building,https://www.sydney.edu.au/maps/campuses/?area=CAMDAR,-,3,1,-
+19,engineering careers fair,Engineering Careers Fair,https://www.sydney.edu.au/engineering/news-and-events/events/careers-fair.html,1,1,1,5
+20,warren institute,The Warren Centre,https://www.sydney.edu.au/engineering/industry-and-community/the-warren-centre.html,2,2,1,1
+21,tj lim phone number,Professor Teng Joon Lim,https://www.sydney.edu.au/engineering/about/our-people/academic-staff/tj-lim.html,1,1,1,-
+22,first professor of the warren centre,Professor William Henry Warren,https://www.sydney.edu.au/engineering/industry-and-community/the-warren-centre.html,-,1,1,4
+23,length of complex systems master,Master of Complex Systems,https://www.sydney.edu.au/courses/courses/pc/master-of-complex-systems0.html,1,1,1,-
+24,prerequisites for info3616,INFO3616: Principles of Security and Security Eng,https://www.sydney.edu.au/units/INFO3616,1,1,1,1
+25,expert in nanobiology of cancer,Associate Professor Filip Braet,https://www.sydney.edu.au/medicine-health/about/our-people/academic-staff/filip-braet.html,-,-,-,-
+26,software engineering stream coordinator,Dr Dong Yuan,https://www.sydney.edu.au/engineering/about/our-people/academic-staff/dong-yuan.html,-,-,-,-
+27,australia korea robot partnership,Mobile Robot Development in Public Space,https://www.sydney.edu.au/engineering/our-research/robotics-and-intelligent-systems/sydney-institute-for-robotics-and-intelligent-systems/robotics-and-society.html,-,-,1,1
+28,combinatorics and algorithms funding,Beyond planar graphs: Combinatorics and algorithms,https://www.sydney.edu.au/engineering/our-research/data-science-and-computer-engineering/algorithms.html,1,1,1,1
+29,author of knowledge management dimensions,Professor Joseph Davis,https://www.sydney.edu.au/engineering/about/our-people/academic-staff/joseph-davis.html,-,-,1,-
+30,location of the ubtech centre,Building J17,https://www.sydney.edu.au/engineering/our-research/data-science-and-computer-engineering/ubtech-sydney-artificial-intelligence-centre.html,-,1,1,1
+31,director of distributed high-performance centre,Professor Albert Zomaya,https://www.sydney.edu.au/engineering/about/our-people/academic-staff/albert-zomaya.html,-,-,3,-
+32,atar requirement for biomedical engineering,Bachelor of Engineering Honours (Biomedical Engineering),https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-biomedical-engineering.html,2,2,1,-
+33,javad bakhshi thesis,Governance of collaborative projects: A complexity thinking approach,https://www.sydney.edu.au/engineering/about/our-people/research-students/javad-bakhshi-667.html,-,1,1,-
+34,vision of faculty of engineering,Faculty of Engineering,https://www.sydney.edu.au/engineering/about/strategic-vision.html,1,12,1,6
+35,winner of humanitarian innovation pitch,Team Orinum,https://www.sydney.edu.au/engineering/industry-and-community/the-warren-centre/humanitarian-innovation-awards.html,-,1,1,1
+36,iot energy services composition project supervisor,Professor Athman Bouguettaya,http://www.sydney.edu.au/engineering/people/athman.bouguettaya.php,-,-,-,-
+37,sustainable energy centre contact,Centre for Sustainable Energy Development,https://www.sydney.edu.au/engineering/our-research/energy-resources-and-the-environment/centre-for-sustainable-energy-development.html,1,1,1,-
+38,sponsor of covid ventilator project,Australian Government’s Department of Health ,https://www.sydney.edu.au/engineering/our-research/healthcare-engineering/covid-19-ventilator-manufacturing.html,-,1,-,4
+39,news about ruchir punjabi,"Meet Ruchir, who at 22 started a thriving global business",https://www.sydney.edu.au/engineering/news-and-events/2017/06/20/5-minutes-with-ruchir-punjabi.html,2,1,1,1
+40,school offering elpm,School of Project Management,https://www.sydney.edu.au/engineering/schools/school-of-project-management.html,-,-,-,13
+41,which university did Kim Rasmussen obtain his masters,Technical University of Denmark,https://www.sydney.edu.au/engineering/about/our-people/academic-staff/kim-rasmussen.html,-,2,1,-
+42,which semester is isys2120 offered,ISYS2120: Data and Information Management,https://www.sydney.edu.au/units/ISYS2120,1,1,1,-
+43,who is the dean of the faculty of engineering,Professor Willy Zwaenepoel,https://www.sydney.edu.au/engineering/about/our-people/academic-staff/willy-zwaenepoel.html,-,-,6,-
+44,where is the school of biomedical engineering,Mechanical Engineering Building,https://www.sydney.edu.au/engineering/schools/school-of-biomedical-engineering.html,-,1,1,1
+45,when is the engineering innovation event,Sydney Engineering Innovation Series,https://www.sydney.edu.au/engineering/news-and-events/events/sydney-engineering-innovation-series.html,2,2,2,-
+46,enrol for engineering graduate diploma,Graduate Diploma in Engineering,https://www.sydney.edu.au/courses/courses/pc/graduate-diploma-in-engineering.html,1,1,1,-
+47,find a lab to measure soot levels,Clean Combustion Laboratory,https://www.sydney.edu.au/engineering/our-research/laboratories-and-facilities/clean-combustion-laboratory.html,2,2,-,-
+48,enquire about agrifood supply collaboration,Food industry transformation,https://www.sydney.edu.au/engineering/our-research/food-products-process-and-supply-chain/food-industry-transformation.html,-,-,-,-
+49,subscribe to engineering industry newsletter,Industry newsletter,https://www.sydney.edu.au/engineering/industry-and-community/industry-news.html,1,1,1,1
+50,book a session at the immersive learning lab,Immersive learning laboratory,https://www.sydney.edu.au/engineering/our-research/laboratories-and-facilities/immersive-learning-laboratory.html,1,1,-,-
