@@ -2,16 +2,20 @@ import axios from "axios"
 import { readString } from "react-papaparse"
 
 
-const URL = "http://localhost:5820/usyd/query"
-const AUTH = { username: "reader", password: "usyd" }
-const HEADERS = { "Accept": "application/json-ld, text/csv" }
+const URL = "https://34.116.92.233:5821/usyd/query"
+const AUTH = { username: "reader", password: "usyd" } // read-only user
+const HEADERS = { 
+    "Accept": "application/json-ld, text/csv",
+    "Access-Control-Allow-Headers": "accept, Authorization,  origin, sd-connection-string",
+    "Access-Control-Allow-Methods": "OPTIONS, GET",
+    "Access-Control-Allow-Origin": "*"
+ }
 
-
+// retrieves all the properties for the specified entity
 export async function entitySearch(uri) {
-    let results = null
     let sparql = `
         prefix stardog: <tag:stardog:api:property:>
-        prefix ont: <http://www.sydney.edu.au/ont/>
+        prefix ont: <http://www.sydney.edu.au/kg/ont/>
         prefix owl: <http://www.w3.org/2002/07/owl#>
         prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         
@@ -31,8 +35,8 @@ export async function entitySearch(uri) {
         GROUP BY ?pX ?o
         ORDER BY asc(?pX)
     `
-    
-    results = await axios.get(URL, { params: { query: sparql }, auth: AUTH, headers: HEADERS })
+    let objs = null
+    objs = await axios.get(URL, { params: { query: sparql }, auth: AUTH, headers: HEADERS })
         .then(response => {
             let res = readString(response.data).data
             res.shift()
@@ -42,9 +46,7 @@ export async function entitySearch(uri) {
             let dict = new Map()
             for (let row of res) {
                 let k = row.shift()
-                
-                // if (propertiesOfInterest.includes(k)) {
-                    
+                                    
                 // Standardise property names
                 if (k.includes('http:')) {
                     k = k.split('#')[1]
@@ -57,45 +59,24 @@ export async function entitySearch(uri) {
                 }
                 dict.get(k).push(row)
             }
-
-            function extractAttr(d, ...attr_names) {
-                let res = null
-                for (let name of attr_names) {
-                    if (res === null && d.get(name)) {
-                        if (Array.isArray(d.get(name)[0])){
-                            res = d.get(name)[0][0]
-                        }
-                        else {
-                            res = d.get(name)[0]
-                        }
-                    }
-                    d.delete(name)
-                }
-                return res
-            }
-
-            return {
-                name: extractAttr(dict, 'Name', 'Label'),
-                type: extractAttr(dict, 'Type'),
-                homepage: extractAttr(dict, 'Homepage', 'Website'),
-                summary: extractAttr(dict, 'Summary', 'Description'),
-                objs: [...dict.entries()]
-            }
+            return dict
         })
         .catch(err => {
             console.log(err)
-            alert(err)
             return null
         })
 
-    if (results.length !== null) {
+    if (objs === null) {
+        return null
+    }
+    else {
         sparql = `
             prefix stardog: <tag:stardog:api:property:>
-            prefix ont: <http://www.sydney.edu.au/ont/>
+            prefix ont: <http://www.sydney.edu.au/kg/ont/>
             prefix owl: <http://www.w3.org/2002/07/owl#>
             prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             
-            SELECT ?pX
+            SELECT ?sclassX
             ?s
             (SAMPLE(?sname) AS ?sname)
             (SAMPLE(?slabel) AS ?slabel) WHERE {
@@ -104,14 +85,16 @@ export async function entitySearch(uri) {
                         ?s ?p <${uri}> .
                     }
                 }
+                ?s a ?sclass .
                 OPTIONAL { ?s ont:name ?sname . }
                 OPTIONAL { ?s rdfs:label ?slabel . }
-                BIND(REPLACE(str(?p), "http://www.sydney.edu.au/ont/", "", "i") AS ?pX)
+                BIND(REPLACE(str(?sclass), "http://www.sydney.edu.au/ont/", "", "i") AS ?sclassX)
             }
-            GROUP BY ?pX ?s
-            ORDER BY asc(?pX)
+            GROUP BY ?sclassX ?s
+            ORDER BY asc(?sclassX)
         `
-        results['subs'] =  await axios.get(URL, { params: { query: sparql }, auth: AUTH, headers: HEADERS })
+        let subs = null
+        subs =  await axios.get(URL, { params: { query: sparql }, auth: AUTH, headers: HEADERS })
             .then(response => {
                 let res = readString(response.data).data
                 res.shift()
@@ -129,20 +112,47 @@ export async function entitySearch(uri) {
                     }
                     dict.get(k).push(row)
                 }
-                return [...dict.entries()]
+                return dict
             }
         )
+        let results
+        if (subs !== null) {
+            results = new Map([...objs, ...subs])
+        }
+        else {
+            results = objs
+        }
+        function extractAttr(d, ...attr_names) {
+            let res = null
+            for (let name of attr_names) {
+                if (res === null && d.get(name)) {
+                    if (Array.isArray(d.get(name)[0])){
+                        res = d.get(name)[0][0]
+                    }
+                    else {
+                        res = d.get(name)[0]
+                    }
+                }
+                d.delete(name)
+            }
+            return res
+        }
+        return {
+            name: extractAttr(results, 'Name', 'Label'),
+            type: extractAttr(results, 'Type'),
+            homepage: extractAttr(results, 'Homepage', 'Website'),
+            summary: extractAttr(results, 'Summary', 'Description', 'Bio', 'Blurb', 'Media'),
+            attr: [...results.entries()]
+        }
     }
-    console.log(results)
-    return results
 }
 
-
+// retrieves entities that wtih any literal property that match the users input
 export async function literalSearch(query, filter) {
     let results = []
     let sparql = `
         prefix fts: <tag:stardog:api:search:>
-        prefix ont: <http://www.sydney.edu.au/ont/>
+        prefix ont: <http://www.sydney.edu.au/kg/ont/>
         prefix owl: <http://www.w3.org/2002/07/owl#>
                 
         SELECT ?s (MAX(?score) AS ?score) 
@@ -176,7 +186,6 @@ export async function literalSearch(query, filter) {
         ORDER BY DESC(?match) DESC(?score)
         LIMIT 100
     `
-    console.log(sparql)
     results = axios.get(URL, { params: { query: sparql }, auth: AUTH, headers: HEADERS })
         .then(response => {
             let res = readString(response.data).data
@@ -186,19 +195,18 @@ export async function literalSearch(query, filter) {
         })
         .catch(err => {
             console.log(err)
-            alert(err)
             return [[""]]
         })
     
     return results
 }
 
-
+// retrieves entities that wtih rdfs labels that match the users input
 export async function nameSearch(query, filter) {
     let results = []
     let sparql = `
         prefix stardog: <tag:stardog:api:property:>
-        prefix ont: <http://www.sydney.edu.au/ont/>
+        prefix ont: <http://www.sydney.edu.au/kg/ont/>
         prefix owl: <http://www.w3.org/2002/07/owl#>
         
         SELECT ?s (MAX(?score) AS ?score) 
@@ -234,7 +242,6 @@ export async function nameSearch(query, filter) {
         })
         .catch(err => {
             console.log(err)
-            alert(err)
             return [[""]]
         })
     return results

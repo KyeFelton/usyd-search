@@ -1,7 +1,7 @@
 import Header from "./components/Header"
 import List from "./components/List"
 import Panel from "./components/Panel"
-import { entitySearch, literalSearch, nameSearch } from './components/API'
+import { entitySearch, literalSearch, nameSearch } from './components/Stardog'
 import { useState } from "react"
 import "./App.css"
 
@@ -50,7 +50,7 @@ export default function App() {
                 <div className="container" >
                     <div className="row" >
                         <div className="col-8" >
-                            <List results={list}/>
+                            <List results={list} updatePanel={updatePanel}/>
                         </div>
                         <div className="col-4" >
                             <Panel results={panel} updatePanel={updatePanel}/>
