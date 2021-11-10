@@ -49,11 +49,11 @@ export default function Header(props) {
     }
 
     function handleTypeChange(selectedOption) {
-        setType( selectedOption.value )
+        setType(selectedOption.value)
     }
 
     return (
-        <header className="header container mb-3">
+        <header className="header container mb-3" id="header">
             <div className="row mb-4">
                 <div className="col-sm-5 col-lg-4 col-xl-3">
                     <img src={logo} className="img-fluid" alt="Univeristy of Sydney"></img>
