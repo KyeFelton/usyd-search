@@ -1,6 +1,10 @@
 .app {
-  font-size: calc(10px + 0.7vmin);
   margin: 2em;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .panel-attribute {
@@ -13,13 +17,19 @@
 
 }
 
-.panel-literal {
-
+.panel-class {
+  font-size: 1em;
+  font-weight: 200;
 }
 
 .panel-object {
   overflow: visible;
   display: inline !important;
+  text-decoration: none;
+}
+
+.panel-object:hover {
+  text-decoration: underline;
 }
 
 .panel-summary {
@@ -30,20 +40,32 @@
   -webkit-box-orient: vertical;
 }
 
-.main {
-  max-width: 1200px;
-  margin: 0 auto;
+.panel-title > a{
+  font-size: 1em;
+  font-weight: 500;
+  color: #212529;
+  text-decoration: none !important;
 }
 
-/* li > * {
-  vertical-align: text-top;
+.panel-title > a:hover {
+  color: #205eC8;
 }
 
-.list-group-item {
-  padding: 1em !important;
-} */
+.result-class {
+  font-size: 1em;
+  font-weight: 200;
+}
 
-.result-desc {
+.result-link {
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.result-link:hover {
+  text-decoration: underline;
+}
+
+.result-summary {
   margin: 1em 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,18 +74,9 @@
   -webkit-box-orient: vertical;
 }
 
-.result-link {
-  font-size: calc(10px + 0.6vmin);
-}
-
-.result-score {
-  font-size: calc(10px + 0.55vmin);
-  font-weight: 200;
-}
-
 .result-title {
   cursor: pointer;
-  font-size: calc(10px + 1.5vmin);
+  font-size: 1.5em;
   font-weight: 500;
   color: #212529;
   text-decoration: none;
