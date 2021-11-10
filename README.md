@@ -1,6 +1,6 @@
 ## usydSearch: an ontology-driven search engine for the University of Sydney
 usydSearch is a ReactJS application for querying usydKnowledge, a knowledge graph constructed for the University of Sydney. Incorporating Stardog's search capabilities, usydSearch translates user input into structured queries to retrieve relevant entities from the knowledge base.
-<pre>
+
+To see the project in action, go to: https://kyefelton.github.io/usydsearch/
 
 ![Screenshot](/screenshot.png)
-</pre>
