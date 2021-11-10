@@ -10,85 +10,54 @@ export default function Panel(props) {
         return null
     }
     else {
-        console.log(props.results)
         return (
             <div className="panel" id="panel">
-                <h2 className="panel-title">{props.results.name}</h2>
-                <p>{props.results.type.toString().replace("http://www.sydney.edu.au/ont/", "")}</p>
+                <h2 className="panel-title">
+                    <a href={props.results.homepage} target="_blank" rel="noreferrer">{props.results.name}</a>
+                </h2>
+                <p className="panel-class">{props.results.type.toString().replace("http://www.sydney.edu.au/ont/", "")}</p>
                 <p className="panel-summary">{props.results.summary}</p>
-                {props.results.objs.map(entry => {
-                    return (
-                        <div className="panel-attribute">
-                            <b>{entry[0]}: </b>
-                            {entry[1].map(pred => {
-                                if (pred[1] !== "") {
-                                    return (<>
-                                        <a className="panel-object" href="#panel" onClick={() => handleEntityClick(pred[0])}>
-                                            {pred[1]}
-                                        </a><br /></>)
-                                }
-                                else if (pred[2] !== "") {
-                                    return (<>
-                                        <a className="panel-object" href="#panel" onClick={() => handleEntityClick(pred[0])}>
-                                            {pred[2]}
-                                        </a><br /></>)
-                                }
-                                else {
-                                    if (pred[0].includes("http://www.sydney.edu.au/kg")) {
-                                        return null
+                {props.results.attr.map(entry => {
+                    if (entry[0] !== "") {
+                        return (
+                            <div className="panel-attribute">
+                                <b>{entry[0]}: </b>
+                                {entry[1].map((values, i, {length}) => {
+                                    let suffix = ""
+                                    if (i < length - 1) {
+                                        suffix = ","
                                     }
-                                    else if (pred[0].startsWith("http:")) {
-                                        return (<><a className="panel-object" href={pred[0]} >{pred[0]}</a><br /></>)
+                                    if (values[1] !== "") {
+                                        return (<>
+                                            <a className="panel-object" href="#header" onClick={() => handleEntityClick(values[0])}>
+                                                {values[1]}
+                                            </a>{suffix}&nbsp;</>)
+                                    }
+                                    else if (values[2] !== "") {
+                                        return (<>
+                                            <a className="panel-object" href="#header" onClick={() => handleEntityClick(values[0])}>
+                                                {values[2]}
+                                            </a>{suffix}&nbsp;</>)
                                     }
                                     else {
-                                        return (<span className="panel-literal">{pred[0]}<br /></span>)
+                                        if (values[0].includes("http://www.sydney.edu.au/kg")) {
+                                            return null
+                                        }
+                                        else if (values[0].startsWith("http:")) {
+                                            return (<><a className="panel-object" href={values[0]} >{values[0]}</a>{suffix}&nbsp;</>)
+                                        }
+                                        else {
+                                            return (<span className="panel-literal">{values[0]}{suffix}&nbsp;</span>)
+                                        }
                                     }
-                                }
-                            }
-                            )}
-                        </div>
-                    )
+                                })}
+                            </div>
+                        )
+                    }
+                    else {
+                        return null
+                    }
                 })}
-                {props.results.subs.map(entry => {
-                    return (
-                        <div className="panel-attribute">
-                            <b>{entry[0]}: </b>
-                            {entry[1].map(pred => {
-                                if (pred[1] !== "") {
-                                    return (<>
-                                        <a className="panel-object" href="#panel" onClick={() => handleEntityClick(pred[0])}>
-                                            {pred[1]}
-                                        </a><br /></>)
-                                }
-                                else if (pred[2] !== "") {
-                                    return (<>
-                                        <a className="panel-object" href="#panel" onClick={() => handleEntityClick(pred[0])}>
-                                            {pred[2]}
-                                        </a><br /></>)
-                                }
-                                else {
-                                    if (pred[0].includes("http://www.sydney.edu.au/kg")) {
-                                        return null
-                                    }
-                                    else if (pred[0].startsWith("http:")) {
-                                        return (<><a className="panel-object" href={pred[0]} >{pred[0]}</a><br /></>)
-                                    }
-                                    else {
-                                        return (<span className="panel-literal">{pred[0]}<br /></span>)
-                                    }
-                                }
-                            }
-                            )}
-                        </div>
-                    )
-                })}
-                <div className="text-center m-4">
-                    <a href={props.results.homepage} target="_blank" rel="noreferrer">
-                        <button className="btn btn-primary">
-                            <b>Learn more</b>
-                        </button>
-                    </a>
-                </div>
             </div>
         )
     }
