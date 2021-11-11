@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/usydsearch/static/css/main.9d453ea6.chunk.css",
-    "main.js": "/usydsearch/static/js/main.cf75cd9f.chunk.js",
-    "main.js.map": "/usydsearch/static/js/main.cf75cd9f.chunk.js.map",
+    "main.js": "/usydsearch/static/js/main.fa03f787.chunk.js",
+    "main.js.map": "/usydsearch/static/js/main.fa03f787.chunk.js.map",
     "runtime-main.js": "/usydsearch/static/js/runtime-main.0340f3eb.js",
     "runtime-main.js.map": "/usydsearch/static/js/runtime-main.0340f3eb.js.map",
     "static/js/2.688728d6.chunk.js": "/usydsearch/static/js/2.688728d6.chunk.js",
@@ -10,12 +10,12 @@
     "index.html": "/usydsearch/index.html",
     "static/css/main.9d453ea6.chunk.css.map": "/usydsearch/static/css/main.9d453ea6.chunk.css.map",
     "static/js/2.688728d6.chunk.js.LICENSE.txt": "/usydsearch/static/js/2.688728d6.chunk.js.LICENSE.txt",
-    "static/media/logo.79db4e19.png": "/usydsearch/static/media/logo.79db4e19.png"
+    "static/media/logo.e0034f6d.png": "/usydsearch/static/media/logo.e0034f6d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.0340f3eb.js",
     "static/js/2.688728d6.chunk.js",
     "static/css/main.9d453ea6.chunk.css",
-    "static/js/main.cf75cd9f.chunk.js"
+    "static/js/main.fa03f787.chunk.js"
   ]
 }
