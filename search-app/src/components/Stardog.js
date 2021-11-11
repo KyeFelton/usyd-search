@@ -15,7 +15,7 @@ const HEADERS = {
 export async function entitySearch(uri) {
     let sparql = `
         prefix stardog: <tag:stardog:api:property:>
-        prefix ont: <http://www.sydney.edu.au/kg/ont/>
+        prefix ont: <http://www.sydney.edu.au/ont/>
         prefix owl: <http://www.w3.org/2002/07/owl#>
         prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         
@@ -72,7 +72,7 @@ export async function entitySearch(uri) {
     else {
         sparql = `
             prefix stardog: <tag:stardog:api:property:>
-            prefix ont: <http://www.sydney.edu.au/kg/ont/>
+            prefix ont: <http://www.sydney.edu.au/ont/>
             prefix owl: <http://www.w3.org/2002/07/owl#>
             prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             
@@ -152,8 +152,9 @@ export async function literalSearch(query, filter) {
     let results = []
     let sparql = `
         prefix fts: <tag:stardog:api:search:>
-        prefix ont: <http://www.sydney.edu.au/kg/ont/>
+        prefix ont: <http://www.sydney.edu.au/ont/>
         prefix owl: <http://www.w3.org/2002/07/owl#>
+        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
                 
         SELECT ?s (MAX(?score) AS ?score) 
             (SAMPLE(?name) AS ?name) 
@@ -206,8 +207,9 @@ export async function nameSearch(query, filter) {
     let results = []
     let sparql = `
         prefix stardog: <tag:stardog:api:property:>
-        prefix ont: <http://www.sydney.edu.au/kg/ont/>
+        prefix ont: <http://www.sydney.edu.au/ont/>
         prefix owl: <http://www.w3.org/2002/07/owl#>
+        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
         
         SELECT ?s (MAX(?score) AS ?score) 
             (SAMPLE(?name) AS ?name)
